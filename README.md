@@ -2,6 +2,14 @@
 stack using docker swarm
 
 ### Here, are few useful commands for this project.
+
+```
+sudo yum install docker -y && systemctl start docker
+
+chmod +x compose-install.sh
+./compose-install.sh
+```
+
 ```
 docker swarm init
 dcoker swarm join-token worker
