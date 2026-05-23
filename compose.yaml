@@ -8,6 +8,7 @@ services:
       - "9092:3000"
     depends_on:
       - tictoc
+# In stack depends_on doesn't work as in compose, leveraging healthcheck option
 
     networks:
       - srinet
