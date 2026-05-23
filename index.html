@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GlowMuse Beauty</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+background:linear-gradient(135deg,#ffdee9,#b5fffc,#e0c3fc);
+min-height:100vh;
+overflow-x:hidden;
+}
+
+nav{
+display:flex;
+justify-content:space-between;
+padding:25px 8%;
+align-items:center;
+}
+
+.logo{
+font-size:32px;
+font-weight:bold;
+color:#ff2f7d;
+}
+
+nav ul{
+display:flex;
+list-style:none;
+gap:30px;
+}
+
+nav ul li{
+font-weight:600;
+cursor:pointer;
+}
+
+.hero{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:50px 8%;
+flex-wrap:wrap;
+}
+
+.left{
+flex:1;
+min-width:300px;
+}
+
+.left h1{
+font-size:70px;
+line-height:1.1;
+color:#222;
+margin-bottom:20px;
+}
+
+.left h1 span{
+color:#ff2f7d;
+}
+
+.left p{
+font-size:18px;
+color:#555;
+margin-bottom:30px;
+}
+
+.btn{
+padding:16px 35px;
+border:none;
+border-radius:50px;
+background:#ff2f7d;
+color:white;
+font-size:18px;
+cursor:pointer;
+font-weight:bold;
+box-shadow:0 10px 25px rgba(255,47,125,.4);
+transition:.4s;
+}
+
+.btn:hover{
+transform:translateY(-6px);
+}
+
+.right{
+flex:1;
+display:flex;
+justify-content:center;
+min-width:300px;
+}
+
+.main-image{
+width:450px;
+animation:float 3s infinite ease-in-out;
+filter:drop-shadow(0 15px 30px rgba(0,0,0,.2));
+}
+
+@keyframes float{
+
+0%{
+transform:translateY(0px);
+}
+
+50%{
+transform:translateY(-20px);
+}
+
+100%{
+transform:translateY(0px);
+}
+
+}
+
+.products{
+padding:50px 8%;
+}
+
+.products h2{
+font-size:40px;
+margin-bottom:30px;
+text-align:center;
+}
+
+.cards{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:30px;
+}
+
+.card{
+
+backdrop-filter:blur(15px);
+background:rgba(255,255,255,.25);
+padding:20px;
+border-radius:30px;
+text-align:center;
+box-shadow:0 10px 30px rgba(0,0,0,.1);
+transition:.5s;
+}
+
+.card:hover{
+transform:translateY(-10px) rotate(1deg);
+}
+
+.card img{
+width:100%;
+height:250px;
+object-fit:cover;
+border-radius:20px;
+margin-bottom:15px;
+}
+
+.price{
+font-size:22px;
+font-weight:bold;
+color:#ff2f7d;
+margin-top:10px;
+}
+
+footer{
+text-align:center;
+padding:40px;
+color:#555;
+}
+
+</style>
+</head>
+
+<body>
+
+<nav>
+
+<div class="logo">GlowMuse ✨</div>
+
+<ul>
+<li>Home</li>
+<li>Products</li>
+<li>Skincare</li>
+<li>Reviews</li>
+</ul>
+
+</nav>
+
+<section class="hero">
+
+<div class="left">
+
+<h1>Glow like your <span>main character era</span></h1>
+
+<p>
+Skincare + Beauty essentials designed for everyday glow.
+Minimal vibes. Maximum confidence.
+</p>
+
+<button class="btn">
+Shop Now
+</button>
+
+</div>
+
+<div class="right">
+
+<img class="main-image"
+src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=900"
+alt="Beauty Product">
+
+</div>
+
+</section>
+
+<section class="products">
+
+<h2>Trending Beauty Picks 💄</h2>
+
+<div class="cards">
+
+<div class="card">
+
+<img src="https://images.unsplash.com/photo-1625772452859-1c03d5bf1137?w=600">
+
+<h3>Glow Serum</h3>
+
+<p>Hydration + bright skin energy.</p>
+
+<div class="price">$29</div>
+
+</div>
+
+<div class="card">
+
+<img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=600">
+
+<h3>Lip Tint</h3>
+
+<p>Soft matte finish with Gen-Z shades.</p>
+
+<div class="price">$19</div>
+
+</div>
+
+<div class="card">
+
+<img src="https://images.unsplash.com/photo-1619451334792-150fd785ee74?w=600">
+
+<h3>Face Cream</h3>
+
+<p>Daily glow with smooth texture.</p>
+
+<div class="price">$35</div>
+
+</div>
+
+</div>
+
+</section>
+
+<footer>
+
+Made with ✨ for beauty lovers
+
+</footer>
+
+</body>
+</html>

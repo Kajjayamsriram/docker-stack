@@ -39,12 +39,13 @@ services:
           - node.hostname==worker1
   
   tictoc:
-    image: sriramk16/tic-tac-toe:latest
+    image: sriramk16/beauty:latest
     ports:
-      - "9094:3000"
+      - "9094:80"
     
     networks:
       - ramnet
+      - srinet
     volumes:
       - ramvol:/opt/ram
     environment:
@@ -60,7 +61,7 @@ services:
 #- node.labels.workers==tictoc -- This is for choosing nodes with label for constraints
 
     healthcheck:
-      test: ['CMD', 'curl', 'http://172.31.12.29:9092']
+      test: ["CMD", "curl", "-f", "http://gamzstack_game:3000"]
       interval: 10s
       timeout: 5s
       retries: 3
