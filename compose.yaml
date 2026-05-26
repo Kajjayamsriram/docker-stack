@@ -1,0 +1,86 @@
+services:
+  beauty:
+    build:
+      context: ./beauty
+      args:
+        IMAGE_VERSION: stable-alpine
+      
+    volumes:
+      - type: bind
+        source: ./selfsigned.crt
+        target: /etc/nginx/selfsigned.crt
+      - type: bind
+        source: ./selfsigned.key
+        target: /etc/nginx/selfsigned.key 
+
+    networks:
+      - srinet
+      - ramnet
+    
+    env_file:
+      - ./beauty.env
+
+    cpus: 0.5
+    mem_limit: 356m
+    mem_reservation: 256m  
+    
+    restart: unless-stopped
+ 
+  game:
+    build:
+      context: ./game
+    
+    volumes:
+      - type: bind
+        source: ./selfsigned.crt
+        target: /etc/nginx/selfsigned.crt
+      - type: bind
+        source: ./selfsigned.key
+        target: /etc/nginx/selfsigned.key 
+    
+    networks:
+      - ramnet
+    
+    environment:
+      ENV: DEV
+      APP: GAMEProd
+
+    secrets:
+      - mysecret
+    #deploy:
+     # replicas: 2
+#replicas are not supported in compose
+    
+    cpus: 0.5
+    mem_limit: 356m
+    mem_reservation: 256m  
+     #update_config: 
+       #order: start-first
+#Not supported in docker swarm
+      
+    restart: unless-stopped
+#It's not supported in the compose
+  
+  proxy:
+    build:
+      context: ./
+    ports:
+       - "443:443"
+
+    networks:
+      ramnet:
+      srinet:
+
+    depends_on:
+      - beauty
+      - game
+
+networks:
+  ramnet:
+    driver: bridge
+  srinet:
+    driver: bridge
+  
+secrets:
+  mysecret:
+    file: ./secret_sample.txt  
