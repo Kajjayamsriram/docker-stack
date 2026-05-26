@@ -39,6 +39,11 @@ services:
         constraints:
           - node.hostname==worker1
   
+      update_config:
+        parallelism: 1
+        order: start-first
+        failure_action: rollback
+  
   tictoc:
     image: sriramk16/beauty:latest
     ports:
